@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.apparel {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: max-content max-content auto;
+  background: hsl(0deg, 100%, 99%);
+  background: linear-gradient(135deg, hsl(0deg, 0%, 100%) 0%, hsl(0deg, 100%, 98%) 100%);
+  font: 400 16px/1.5em "Josefin Sans", sans-serif;
+  color: hsl(0deg, 36%, 70%);
+}
+.apparel .logo {
+  margin: 8%;
+}
+.apparel .poster {
+  height: 66.6666666667vw;
+  background: url(../images/hero-mobile.jpg) no-repeat center top;
+  background-size: cover;
+}
+.apparel .content {
+  box-sizing: border-box;
+  margin: 16% 8% 16% 8%;
+  text-align: center;
+}
+.apparel .header {
+  width: min-content;
+  padding: 0;
+  margin: 0 auto 0.4em auto;
+  text-transform: uppercase;
+  font-size: 250%;
+  line-height: 1.1em;
+  letter-spacing: 0.25em;
+  color: hsl(0deg, 6%, 24%);
+}
+.apparel .header::first-line {
+  font-weight: 300;
+  color: hsl(0deg, 36%, 70%);
+}
+.apparel .text {
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+.apparel .email {
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  padding: 1em 100px 1em 25px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  font: 400 16px/1em "Josefin Sans", sans-serif;
+  color: hsl(0deg, 6%, 24%);
+  font-weight: 600;
+  border: 1px solid lightgray;
+  background-color: transparent;
+  outline: none;
+}
+.apparel .email:focus {
+  border: 1px solid hsl(0deg, 36%, 70%);
+  background-color: white;
+}
+.apparel .email::placeholder {
+  color: lightgray;
+}
+.apparel form {
+  position: relative;
+}
+.apparel .button {
+  display: block;
+  box-sizing: border-box;
+  height: 48px;
+  width: 65px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  background-color: hsl(0deg, 74%, 74%);
+  background: url(../images/icon-arrow.svg) no-repeat center center, linear-gradient(135deg, hsl(0deg, 80%, 86%) 0%, hsl(0deg, 74%, 74%) 100%);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 0 10px 20px 0 rgba(206, 151, 151, 0.5);
+  transition: box-shadow 0.5s ease-in-out;
+  cursor: pointer;
+}
+.apparel .button input {
+  opacity: 0;
+  position: absolute;
+  top: -1000px;
+}
+.apparel .validation_msg {
+  margin: 10px 0 0 26px;
+  font-size: 90%;
+  font-weight: 600;
+  text-align: left;
+}
+.apparel .error .email {
+  border: 2px solid hsl(0deg, 93%, 68%);
+  background-image: url("../images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 70px) center;
+}
+.apparel .error .validation_msg {
+  color: hsl(0deg, 93%, 68%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .apparel .button:hover {
+    box-shadow: 0 10px 20px 0 #ce9797;
+    background: hsl(0deg, 80%, 86%) url(../images/icon-arrow.svg) no-repeat center center;
+  }
+}
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .apparel {
+    grid-template-rows: max-content auto;
+    grid-template-columns: 58% 42%;
+    background: hsl(0deg, 100%, 99%) url(../images/bg-pattern-desktop.svg) no-repeat top left;
+    background-size: 58% 100%;
+  }
+  .apparel .logo {
+    margin: 7% 19%;
+  }
+  .apparel .poster {
+    box-sizing: border-box;
+    grid-row: 1/3;
+    grid-column: 2;
+    height: 100%;
+    background: url(../images/hero-desktop.jpg) no-repeat center top;
+    background-size: cover;
+  }
+  .apparel .content {
+    margin: 7% 26% 7% 19%;
+    text-align: left;
+  }
+  .apparel .header {
+    margin: 0 0 0.4em 0;
+    font-size: 400%;
+  }
+  .apparel .text {
+    margin-bottom: 40px;
+  }
+  .apparel .email {
+    height: 56px;
+    padding: 1em 135px 1em 25px;
+  }
+  .apparel .button {
+    height: 56px;
+    width: 100px;
+  }
+  .apparel .error .email {
+    background-position: calc(100% - 105px) center;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,163 @@
+// Colors
+$desaturated-red: hsl(0, 36%, 70%);
+$soft-red: hsl(0, 93%, 68%);
+$dark-grayish-red: hsl(0, 6%, 24%);
+$light-pink: hsl(0, 100%, 99%);
+// Gradients
+$gradient-bg-mobile: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 100%, 98%) 100%);
+$gradient-btn: linear-gradient(135deg, hsl(0, 80%, 86%) 0%, hsl(0, 74%, 74%) 100%);
+
+// Load fonts
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.apparel {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows:  max-content max-content auto;
+    background: $light-pink;
+    background: $gradient-bg-mobile;
+    font: 400 16px / 1.5em 'Josefin Sans', sans-serif;
+    color: $desaturated-red;
+    .logo {
+        margin: 8%;
+    }
+    .poster {
+        height: calc(100vw/1.5);
+        background: url(../images/hero-mobile.jpg) no-repeat center top;
+        background-size: cover;
+    }
+    .content {
+        //border: 1px dashed coral;
+        box-sizing: border-box;
+        margin: 16% 8% 16% 8%;
+        text-align: center;
+    }
+    .header {
+        width: min-content;
+        padding: 0;
+        margin: 0 auto 0.4em auto;
+        text-transform: uppercase;
+        font-size: 250%;
+        line-height: 1.1em;
+        letter-spacing: 0.25em;
+        color: $dark-grayish-red;
+        &::first-line {
+            font-weight: 300;
+            color: $desaturated-red;
+        }
+    }
+    .text {
+        padding: 0;
+        margin: 0 0 30px 0;
+    }
+    .email {
+        box-sizing: border-box;
+        width: 100%;
+        height: 48px;
+        padding: 1em 100px 1em 25px;
+        -webkit-border-radius: 30px;
+        border-radius: 30px;
+        font: 400 16px / 1em 'Josefin Sans', sans-serif;
+        color: $dark-grayish-red;
+        font-weight: 600;
+        border: 1px solid lightgray;
+        background-color: transparent;
+        outline: none;
+        &:focus {
+            border: 1px solid $desaturated-red;
+            background-color: white;
+        }
+        &::placeholder { color: lightgray }
+    }
+    form {position: relative;}
+    .button {
+        display: block;
+        box-sizing: border-box;
+        height: 48px;
+        width: 65px;
+        -webkit-border-radius: 30px;
+        border-radius: 30px;
+        background-color: hsl(0, 74%, 74%);
+        background: url(../images/icon-arrow.svg) no-repeat center center, $gradient-btn;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        box-shadow: 0 10px 20px 0 rgba($color: $desaturated-red, $alpha: 0.5);
+        transition: box-shadow 0.5s ease-in-out;
+        cursor: pointer;
+        input {
+            opacity: 0;
+            position: absolute;
+            top:-1000px;
+        }
+    }
+
+    .validation_msg {
+        margin: 10px 0 0 26px;
+        font-size: 90%;    
+        font-weight: 600;
+        text-align: left;
+    }
+    .error {
+        .email {
+            border: 2px solid $soft-red;
+            background-image: url('../images/icon-error.svg');
+            background-repeat: no-repeat;
+            background-position: calc(100% - 70px) center;
+        }
+        .validation_msg { color: $soft-red; }
+    }
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .apparel .button:hover {
+        box-shadow: 0 10px 20px 0 rgba($color: $desaturated-red, $alpha: 1);
+        background: hsl(0, 80%, 86%) url(../images/icon-arrow.svg) no-repeat center center;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+    .apparel {
+        grid-template-rows: max-content auto;
+        grid-template-columns: 58% 42%;
+        background: $light-pink url(../images/bg-pattern-desktop.svg) no-repeat top left;
+        background-size: 58% 100%;
+        .logo {margin: 7% 19%;}
+        .poster {
+            box-sizing: border-box;
+            grid-row:    1 / 3;
+            grid-column: 2;
+            height: 100%;
+            background: url(../images/hero-desktop.jpg) no-repeat center top;
+            background-size: cover;
+        }
+        .content {
+            margin: 7% 26% 7% 19%;
+            text-align: left;
+        }
+        .header {
+            margin: 0 0 0.4em 0;
+            font-size: 400%;
+        }
+        .text {margin-bottom: 40px;}
+        .email {
+            height: 56px;
+            padding: 1em 135px 1em 25px;
+        }
+        .button {
+            height: 56px;
+            width: 100px;
+        }
+        .error .email {
+            background-position: calc(100% - 105px) center;
+        }
+    }
+}
